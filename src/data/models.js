@@ -1,4 +1,4 @@
-// 📦 DONNÉES DE VOS MODÈLES 3D
+// 📦 DONNÉES COMPLÈTES DE VOS MODÈLES 3D
 
 export const modelsData = [
   {
