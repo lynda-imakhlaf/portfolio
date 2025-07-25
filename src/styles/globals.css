@@ -2,8 +2,11 @@
    🎨 STYLES GLOBAUX COMPLETS - IMAKTECK 3D PORTFOLIO
    ============================================================================ */
 
-/* Variables CSS */
+/* ============================================================================
+   🌙 THÈME SOMBRE - TES COULEURS EXACTES (Par défaut)
+   ============================================================================ */
 :root {
+  /* TES COULEURS ORIGINALES - AUCUN CHANGEMENT */
   --primary-color: #ff6b35;
   --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8a65);
   --secondary-color: #e91e63;
@@ -24,12 +27,147 @@
   --shadow-light: 0 4px 15px rgba(255, 107, 53, 0.3);
   --shadow-heavy: 0 8px 25px rgba(255, 107, 53, 0.3);
   
+  /* Variables pour les éléments adaptatifs - MODE SOMBRE */
+  --overlay-bg-start: rgba(0, 0, 0, 0.7);
+  --overlay-bg-end: rgba(0, 0, 0, 0.8);
+  --action-btn-bg: rgba(0, 0, 0, 0.7);
+  --header-bg: rgba(15, 15, 15, 0.95);
+  --header-bg-scrolled: rgba(15, 15, 15, 0.98);
+  --header-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --input-bg: rgba(26, 26, 46, 0.3);
+  --form-bg: rgba(26, 26, 46, 0.3);
+  --form-input-bg: rgba(15, 15, 15, 0.5);
+  --stats-bg: rgba(26, 26, 46, 0.3);
+  --about-bg: rgba(26, 26, 46, 0.3);
+  --model-card-bg: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(15, 15, 15, 0.8));
+  --stat-item-bg: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(26, 26, 46, 0.3));
+  --contact-cta-bg: rgba(255, 107, 53, 0.1);
+  
   --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --container-max-width: 1200px;
   --border-radius: 12px;
   --border-radius-small: 8px;
   --transition: all 0.3s ease;
 }
+
+/* ============================================================================
+   ☀️ THÈME CLAIR - COULEURS ATTRACTIVES ET VARIÉES
+   ============================================================================ */
+.theme-light {
+  /* Couleurs primaires IDENTIQUES */
+  --primary-color: #ff6b35;
+  --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8a65);
+  --secondary-color: #e91e63;
+  --accent-purple: #9c27b0;
+  --accent-green: #4caf50;
+  --accent-orange: #ff9800;
+  --accent-blue: #2196f3;
+  
+  /* Backgrounds avec dégradés riches et colorés */
+  --bg-dark: #fefefe;
+  --bg-secondary: #f0f4f8;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  
+  /* Bordures plus définies en mode clair */
+  --border-color: rgba(255, 107, 53, 0.3);
+  --border-hover: rgba(255, 107, 53, 0.7);
+  
+  /* Ombres colorées subtiles */
+  --shadow-light: 0 4px 15px rgba(255, 107, 53, 0.1);
+  --shadow-heavy: 0 8px 25px rgba(255, 107, 53, 0.15);
+  
+  /* Variables adaptatives pour MODE CLAIR avec plus de caractère */
+  --overlay-bg-start: rgba(255, 255, 255, 0.85);
+  --overlay-bg-end: rgba(248, 250, 252, 0.9);
+  --action-btn-bg: rgba(255, 255, 255, 0.95);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.98);
+  --header-shadow: 0 4px 20px rgba(255, 107, 53, 0.08);
+  --input-bg: rgba(247, 250, 252, 0.8);
+  --form-bg: rgba(247, 250, 252, 0.6);
+  --form-input-bg: rgba(255, 255, 255, 0.9);
+  --stats-bg: rgba(247, 250, 252, 0.7);
+  --about-bg: rgba(247, 250, 252, 0.7);
+  --model-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 250, 252, 0.9));
+  --stat-item-bg: linear-gradient(135deg, rgba(255, 107, 53, 0.03), rgba(247, 250, 252, 0.8));
+  --contact-cta-bg: linear-gradient(135deg, rgba(255, 107, 53, 0.04), rgba(255, 154, 125, 0.04));
+}
+
+/* ============================================================================
+   🎨 BOUTON DE THÈME
+   ============================================================================ */
+.theme-toggle {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  z-index: 1001;
+  
+  background: var(--bg-dark);
+  border: 2px solid var(--border-color);
+  border-radius: 50px;
+  padding: 12px 16px;
+  
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  font-size: 0.9rem;
+  font-weight: 600;
+  
+  cursor: pointer;
+  transition: var(--transition);
+  
+  box-shadow: var(--shadow-light);
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.sun-icon {
+  color: #ffa726;
+}
+
+.moon-icon {
+  color: #5c6bc0;
+}
+
+.theme-toggle-text {
+  white-space: nowrap;
+}
+
+/* Sur mobile, masquer le texte */
+@media (max-width: 768px) {
+  .theme-toggle {
+    padding: 12px;
+    right: 15px;
+  }
+  
+  .theme-toggle-text {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   BODY - BACKGROUNDS RICHES ET COLORÉS
+   ============================================================================ */
 
 /* Reset et base */
 * {
@@ -40,10 +178,27 @@
 
 body {
   font-family: var(--font-family);
-  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-secondary) 100%);
   color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Background mode sombre - TON ORIGINAL */
+body {
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
+}
+
+/* Background mode clair - RICHE ET ATTRACTIF */
+body.theme-light {
+  background: linear-gradient(
+    135deg, 
+    #ffffff 0%,
+    #f7fafc 25%,
+    #edf2f7 50%,
+    #e2e8f0 75%,
+    #f0f4f8 100%
+  ) !important;
 }
 
 .app {
@@ -140,14 +295,14 @@ body {
 }
 
 /* ============================================================================
-   🎯 HEADER
+   🎯 HEADER - ENTIÈREMENT ADAPTATIF
    ============================================================================ */
 
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(15, 15, 15, 0.95);
+  background: var(--header-bg);
   backdrop-filter: blur(10px);
   z-index: 1000;
   padding: 1rem 0;
@@ -156,8 +311,8 @@ body {
 }
 
 .header.scrolled {
-  background: rgba(15, 15, 15, 0.98);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: var(--header-bg-scrolled);
+  box-shadow: var(--header-shadow);
 }
 
 .nav {
@@ -236,12 +391,12 @@ body {
 }
 
 /* ============================================================================
-   🎯 STATS
+   🎯 STATS - ENTIÈREMENT ADAPTATIF
    ============================================================================ */
 
 .stats {
   padding: 4rem 0;
-  background: rgba(26, 26, 46, 0.3);
+  background: var(--stats-bg);
 }
 
 .stats-grid {
@@ -254,7 +409,7 @@ body {
 .stat-item {
   padding: 2rem;
   border-radius: var(--border-radius);
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(26, 26, 46, 0.3));
+  background: var(--stat-item-bg);
   border: 1px solid var(--border-color);
   transition: transform 0.3s ease;
 }
@@ -283,7 +438,7 @@ body {
 }
 
 /* ============================================================================
-   🎯 MODELS SECTION
+   🎯 MODELS SECTION - ENTIÈREMENT ADAPTATIF
    ============================================================================ */
 
 .models-section {
@@ -302,7 +457,7 @@ body {
   max-width: 400px;
   padding: 12px 16px;
   border: 1px solid var(--border-color);
-  background: rgba(26, 26, 46, 0.3);
+  background: var(--input-bg);
   color: var(--text-primary);
   border-radius: 25px;
   font-family: inherit;
@@ -313,6 +468,10 @@ body {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
 }
 
 /* Filtres */
@@ -355,9 +514,9 @@ body {
   gap: 2rem;
 }
 
-/* Carte de modèle */
+/* Carte de modèle - ENTIÈREMENT ADAPTATIVE */
 .model-card {
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.6), rgba(15, 15, 15, 0.8));
+  background: var(--model-card-bg);
   border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border-color);
@@ -370,13 +529,20 @@ body {
   overflow: hidden;
 }
 
+/* Overlay adaptatif */
 .model-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 30%, transparent 70%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(
+    to bottom, 
+    var(--overlay-bg-start) 0%, 
+    transparent 30%, 
+    transparent 70%, 
+    var(--overlay-bg-end) 100%
+  );
   opacity: 0;
   transition: var(--transition);
   display: flex;
@@ -412,17 +578,24 @@ body {
   color: white;
 }
 
+/* Badge type adaptatif pour le mode clair */
+.theme-light .badge.type {
+  background: rgba(26, 32, 44, 0.15);
+  color: var(--text-primary);
+}
+
 .model-actions {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
 }
 
+/* Action button adaptatif */
 .action-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--action-btn-bg);
   border: 1px solid var(--border-hover);
   color: var(--primary-color);
   cursor: pointer;
@@ -568,12 +741,12 @@ body {
 }
 
 /* ============================================================================
-   🎯 ABOUT SECTION
+   🎯 ABOUT SECTION - ENTIÈREMENT ADAPTATIF
    ============================================================================ */
 
 .about-section {
   padding: 6rem 0;
-  background: rgba(26, 26, 46, 0.3);
+  background: var(--about-bg);
 }
 
 .about-content {
@@ -677,7 +850,7 @@ body {
 }
 
 /* ============================================================================
-   🎯 CONTACT SECTION  
+   🎯 CONTACT SECTION - ENTIÈREMENT ADAPTATIF
    ============================================================================ */
 
 .contact-section {
@@ -748,7 +921,7 @@ body {
 }
 
 .contact-cta {
-  background: rgba(255, 107, 53, 0.1);
+  background: var(--contact-cta-bg);
   padding: 1.5rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
@@ -775,7 +948,7 @@ body {
 }
 
 .contact-form {
-  background: rgba(26, 26, 46, 0.3);
+  background: var(--form-bg);
   padding: 2rem;
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
@@ -832,10 +1005,11 @@ body {
   width: 100%;
   padding: 12px;
   border: 1px solid var(--border-color);
-  background: rgba(15, 15, 15, 0.5);
+  background: var(--form-input-bg);
   color: var(--text-primary);
   border-radius: 8px;
   font-family: inherit;
+  transition: var(--transition);
 }
 
 .form-group input:focus,
@@ -844,6 +1018,11 @@ body {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--text-muted);
 }
 
 .form-group textarea {

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../contexts/ThemeContext';
 
 function Hero() {
+  const { isDark, isLight } = useTheme();
+
   const scrollToModels = () => {
     const element = document.getElementById('models');
     if (element) {
@@ -43,6 +46,22 @@ function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           Lynda imakhlaf - Artiste 3D Professionnel
+        </motion.p>
+
+        {/* Message adaptatif selon le thème */}
+        <motion.p 
+          className="theme-message"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{
+            fontSize: '0.9rem',
+            color: 'var(--text-secondary)',
+            marginBottom: '1rem'
+          }}
+        >
+          {isDark ? '🌙 Mode sombre activé' : '☀️ Mode clair activé'} - 
+          Changez le thème avec le bouton à droite
         </motion.p>
         
         <motion.div 

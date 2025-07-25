@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../contexts/ThemeContext';
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { currentTheme, isDark } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,7 +37,16 @@ function Header() {
             className="logo-round"
           /> 
           IMAKTECK 3D
+          {/* Petit indicateur du thème actuel (optionnel) */}
+          <span style={{ 
+            fontSize: '0.7rem', 
+            opacity: 0.6, 
+            marginLeft: '8px' 
+          }}>
+            {isDark ? '🌙' : '☀️'}
+          </span>
         </div>
+        
         <ul className="nav-links">
           <li>
             <a 

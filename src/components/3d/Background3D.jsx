@@ -1,10 +1,17 @@
- 
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
+import { useTheme } from '../../contexts/ThemeContext';
 import Model3D from './Model3D';
 
 function Background3D() {
+  const { isDark } = useTheme();
+  
+  // Backgrounds RICHES et attractifs
+  const backgroundStyle = isDark 
+    ? 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%)'  // Mode sombre (ton original)
+    : 'linear-gradient(135deg, #ffffff 0%, #f7fafc 25%, #edf2f7 50%, #e2e8f0 75%, #f0f4f8 100%)';  // Mode clair RICHE
+
   return (
     <Canvas
       camera={{ position: [0, 0, 8], fov: 45 }}
@@ -15,7 +22,7 @@ function Background3D() {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%)'
+        background: backgroundStyle  // Background adaptatif et riche
       }}
     >
       <ambientLight intensity={0.3} />

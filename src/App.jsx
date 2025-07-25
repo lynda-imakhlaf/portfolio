@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
 import './styles/globals.css';
 
+// Contexte de thème
+import { ThemeProvider } from './contexts/ThemeContext';
+
 // Layout Components
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -11,6 +14,9 @@ import Stats from './components/sections/Stats';
 import ModelsSection from './components/sections/ModelsSection';
 import About from './components/sections/About';
 import Contact from './components/sections/Contact';
+
+// UI Components
+import ThemeToggle from './components/ui/ThemeToggle';
 
 // 3D Components
 import Background3D from './components/3d/Background3D';
@@ -61,31 +67,37 @@ function LoadingScreen() {
 
 /**
  * Composant principal de l'application
- * Architecture propre avec composants séparés
+ * Architecture propre avec composants séparés + support des thèmes
  */
 function App() {
   return (
-    <div className="app">
-      {/* Arrière-plan 3D avec gestion des erreurs */}
-      <Suspense fallback={<LoadingScreen />}>
-        <Background3D />
-      </Suspense>
-      
-      {/* Navigation */}
-      <Header />
-      
-      {/* Contenu principal */}
-      <main>
-        <Hero />
-        <Stats />
-        <ModelsSection />
-        <About />
-        <Contact />
-      </main>
-      
-      {/* Pied de page */}
-      <Footer />
-    </div>
+    // 1. Envelopper toute l'app avec le ThemeProvider
+    <ThemeProvider>
+      <div className="app">
+        {/* Arrière-plan 3D avec gestion des erreurs */}
+        <Suspense fallback={<LoadingScreen />}>
+          <Background3D />
+        </Suspense>
+        
+        {/* Bouton de changement de thème */}
+        <ThemeToggle />
+        
+        {/* Navigation */}
+        <Header />
+        
+        {/* Contenu principal */}
+        <main>
+          <Hero />
+          <Stats />
+          <ModelsSection />
+          <About />
+          <Contact />
+        </main>
+        
+        {/* Pied de page */}
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
