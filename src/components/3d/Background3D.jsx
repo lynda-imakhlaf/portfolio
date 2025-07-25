@@ -1,16 +1,16 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Environment } from '@react-three/drei';
+import { OrbitControls, Environment, Stars } from '@react-three/drei';
 import { useTheme } from '../../contexts/ThemeContext';
-import Model3D from './Model3D';
+import FloatingStars from './FloatingStars';
 
 function Background3D() {
   const { isDark } = useTheme();
   
-  // Backgrounds RICHES et attractifs
+  // Backgrounds élégants et doux (tes couleurs originales)
   const backgroundStyle = isDark 
-    ? 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%)'  // Mode sombre (ton original)
-    : 'linear-gradient(135deg, #ffffff 0%, #f7fafc 25%, #edf2f7 50%, #e2e8f0 75%, #f0f4f8 100%)';  // Mode clair RICHE
+    ? 'linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%)'  // Mode sombre original
+    : 'linear-gradient(135deg, #ffffff 0%, #f7fafc 25%, #edf2f7 50%, #e2e8f0 75%, #f0f4f8 100%)';  // Mode clair doux
 
   return (
     <Canvas
@@ -22,27 +22,60 @@ function Background3D() {
         width: '100%',
         height: '100%',
         zIndex: -1,
-        background: backgroundStyle  // Background adaptatif et riche
+        background: backgroundStyle
       }}
     >
-      <ambientLight intensity={0.3} />
-      <pointLight position={[10, 10, 10]} intensity={0.8} color="#ff6b35" />
-      <pointLight position={[-10, -10, 5]} intensity={0.5} color="#2196f3" />
+      {/* Éclairage doux et naturel */}
+      <ambientLight intensity={isDark ? 0.3 : 0.5} />
       
-      <Environment preset="night" />
+      {/* Lumières principales qui éclairent les étoiles */}
+      <pointLight 
+        position={[10, 10, 10]} 
+        intensity={0.7} 
+        color="#ff6b35" 
+        distance={20}
+        decay={2}
+      />
+      <pointLight 
+        position={[-10, -10, 5]} 
+        intensity={0.5} 
+        color="#ffa726" 
+        distance={15}
+        decay={2}
+      />
+      <pointLight 
+        position={[0, 12, -8]} 
+        intensity={0.4} 
+        color="#fff3e0" 
+        distance={18}
+        decay={2}
+      />
       
-      <Model3D position={[-3, 2, -2]} color="#ff6b35" scale={0.5} rotationSpeed={0.5} />
-      <Model3D position={[3, -1, -3]} color="#e91e63" scale={0.7} rotationSpeed={0.8} />
-      <Model3D position={[-2, -2, -4]} color="#9c27b0" scale={0.4} rotationSpeed={1.2} />
-      <Model3D position={[2, 2, -5]} color="#4caf50" scale={0.6} rotationSpeed={0.7} />
-      <Model3D position={[0, -3, -2]} color="#ff9800" scale={0.5} rotationSpeed={1.0} />
-      <Model3D position={[-4, 0, -3]} color="#2196f3" scale={0.6} rotationSpeed={0.9} />
+      {/* Environnement subtil */}
+      <Environment preset={isDark ? "night" : "dawn"} />
       
+      {/* Étoiles de fond pour la profondeur (modéré) */}
+      <Stars 
+        radius={50} 
+        depth={50} 
+        count={isDark ? 1000 : 600} 
+        factor={isDark ? 4 : 2.5} 
+        saturation={0.6} 
+        fade={true}
+        speed={0.4}
+      />
+      
+      {/* Nos belles étoiles principales */}
+      <FloatingStars count={18} bounds={{ x: 12, y: 10, z: 10 }} />
+      
+      {/* Contrôles fluides et élégants */}
       <OrbitControls 
         enableZoom={false} 
         enablePan={false} 
         autoRotate 
-        autoRotateSpeed={0.5}
+        autoRotateSpeed={0.25} // Plus lent et zen
+        maxPolarAngle={Math.PI / 1.8}
+        minPolarAngle={Math.PI / 3}
       />
     </Canvas>
   );
