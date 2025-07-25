@@ -51,10 +51,10 @@
 }
 
 /* ============================================================================
-   ☀️ THÈME CLAIR - COULEURS ATTRACTIVES ET VARIÉES
+   ☀️ THÈME CLAIR AMÉLIORÉ - NOUVEAU DESIGN ATTRACTIF
    ============================================================================ */
 .theme-light {
-  /* Couleurs primaires IDENTIQUES */
+  /* Couleurs primaires IDENTIQUES - gardées */
   --primary-color: #ff6b35;
   --primary-gradient: linear-gradient(135deg, #ff6b35, #ff8a65);
   --secondary-color: #e91e63;
@@ -63,36 +63,257 @@
   --accent-orange: #ff9800;
   --accent-blue: #2196f3;
   
-  /* Backgrounds avec dégradés riches et colorés */
-  --bg-dark: #fefefe;
-  --bg-secondary: #f0f4f8;
-  --text-primary: #1a202c;
-  --text-secondary: #4a5568;
-  --text-muted: #718096;
+  /* 🎨 NOUVEAUX BACKGROUNDS - Beaucoup plus attractifs */
+  --bg-dark: linear-gradient(135deg, #ffffff 0%, #f8faff 30%, #fff5f2 70%, #fef7f0 100%);
+  --bg-secondary: linear-gradient(135deg, #fff8f5 0%, #f0f9ff 50%, #fdf4ff 100%);
   
-  /* Bordures plus définies en mode clair */
+  /* 🌈 Textes avec plus de caractère */
+  --text-primary: #1a1a2e;  /* Plus sombre pour meilleur contraste */
+  --text-secondary: #2d3748; /* Moins gris, plus bleuté */
+  --text-muted: #4a5568;     /* Plus lisible */
+  
+  /* 🔥 Bordures colorées et vivantes */
   --border-color: rgba(255, 107, 53, 0.3);
-  --border-hover: rgba(255, 107, 53, 0.7);
+  --border-hover: rgba(255, 107, 53, 0.8);
   
-  /* Ombres colorées subtiles */
-  --shadow-light: 0 4px 15px rgba(255, 107, 53, 0.1);
-  --shadow-heavy: 0 8px 25px rgba(255, 107, 53, 0.15);
+  /* ✨ Ombres colorées et modernes */
+  --shadow-light: 0 4px 20px rgba(255, 107, 53, 0.15), 0 1px 3px rgba(33, 150, 243, 0.1);
+  --shadow-heavy: 0 10px 40px rgba(255, 107, 53, 0.2), 0 4px 15px rgba(233, 30, 99, 0.15);
   
-  /* Variables adaptatives pour MODE CLAIR avec plus de caractère */
-  --overlay-bg-start: rgba(255, 255, 255, 0.85);
-  --overlay-bg-end: rgba(248, 250, 252, 0.9);
-  --action-btn-bg: rgba(255, 255, 255, 0.95);
-  --header-bg: rgba(255, 255, 255, 0.95);
-  --header-bg-scrolled: rgba(255, 255, 255, 0.98);
-  --header-shadow: 0 4px 20px rgba(255, 107, 53, 0.08);
-  --input-bg: rgba(247, 250, 252, 0.8);
-  --form-bg: rgba(247, 250, 252, 0.6);
+  /* 🎯 Variables adaptatives - BEAUCOUP PLUS COLORÉES */
+  --overlay-bg-start: rgba(255, 255, 255, 0.95);
+  --overlay-bg-end: rgba(248, 250, 252, 0.95);
+  
+  /* 🏠 Header avec dégradé subtil */
+  --header-bg: rgba(255, 255, 255, 0.98);
+  --header-bg-scrolled: rgba(255, 255, 255, 0.99);
+  --header-shadow: 0 4px 25px rgba(255, 107, 53, 0.1), 0 2px 10px rgba(33, 150, 243, 0.05);
+  
+  /* 📝 Inputs avec backgrounds colorés */
+  --input-bg: rgba(255, 248, 245, 0.8);
+  --form-bg: rgba(255, 248, 245, 0.4);
   --form-input-bg: rgba(255, 255, 255, 0.9);
-  --stats-bg: rgba(247, 250, 252, 0.7);
-  --about-bg: rgba(247, 250, 252, 0.7);
-  --model-card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(247, 250, 252, 0.9));
-  --stat-item-bg: linear-gradient(135deg, rgba(255, 107, 53, 0.03), rgba(247, 250, 252, 0.8));
-  --contact-cta-bg: linear-gradient(135deg, rgba(255, 107, 53, 0.04), rgba(255, 154, 125, 0.04));
+  
+  /* 📊 Stats avec couleurs vives */
+  --stats-bg: rgba(255, 248, 245, 0.6);
+  --about-bg: rgba(255, 248, 245, 0.5);
+  
+  /* 🎴 Model cards avec dégradés riches */
+  --model-card-bg: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 248, 245, 0.9) 30%, 
+    rgba(240, 249, 255, 0.85) 70%, 
+    rgba(253, 244, 255, 0.9) 100%
+  );
+  
+  /* 📈 Stat items avec couleurs d'accent */
+  --stat-item-bg: linear-gradient(135deg, 
+    rgba(255, 107, 53, 0.05) 0%, 
+    rgba(33, 150, 243, 0.03) 50%, 
+    rgba(156, 39, 176, 0.04) 100%
+  );
+  
+  /* 📞 Contact CTA plus vibrant */
+  --contact-cta-bg: linear-gradient(135deg, 
+    rgba(255, 107, 53, 0.08) 0%, 
+    rgba(233, 30, 99, 0.06) 50%, 
+    rgba(76, 175, 80, 0.05) 100%
+  );
+  
+  /* 🎨 Action buttons plus colorés */
+  --action-btn-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================================================
+   🌈 AMÉLIORATIONS SPÉCIFIQUES AU THÈME CLAIR
+   ============================================================================ */
+
+/* Body avec dégradé riche et coloré */
+body.theme-light {
+  background: linear-gradient(
+    135deg, 
+    #ffffff 0%,
+    #fff8f5 15%,
+    #f0f9ff 35%,
+    #fdf4ff 55%,
+    #fff5f2 75%,
+    #f8faff 90%,
+    #fef7f0 100%
+  ) !important;
+  /* Background fixe pour éviter la répétition */
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+/* 🎯 Badge type plus coloré en mode clair */
+.theme-light .badge.type {
+  background: linear-gradient(45deg, rgba(255, 107, 53, 0.15), rgba(33, 150, 243, 0.1));
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* 🏷️ Tags plus vibrants */
+.theme-light .tag {
+  background: linear-gradient(45deg, rgba(255, 107, 53, 0.15), rgba(233, 30, 99, 0.1));
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+/* 💡 Skill tags plus colorés */
+.theme-light .skill-tag {
+  background: linear-gradient(45deg, rgba(255, 107, 53, 0.12), rgba(156, 39, 176, 0.08));
+  color: var(--primary-color);
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.1);
+}
+
+/* 🔘 Boutons filtres plus attractifs */
+.theme-light .filter-btn {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 255, 0.6));
+  border: 1px solid rgba(255, 107, 53, 0.3);
+  color: var(--text-secondary);
+  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.08);
+}
+
+.theme-light .filter-btn:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 📱 Input plus stylé */
+.theme-light .search-input {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 255, 0.8));
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.1);
+}
+
+.theme-light .search-input:focus {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 255, 0.9));
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2), 0 6px 20px rgba(33, 150, 243, 0.1);
+}
+
+/* 🏠 Header plus stylé */
+.theme-light .header {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(248, 250, 255, 0.9) 100%
+  );
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 107, 53, 0.2);
+}
+
+.theme-light .header.scrolled {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.98) 0%, 
+    rgba(248, 250, 255, 0.95) 100%
+  );
+  box-shadow: 0 4px 30px rgba(255, 107, 53, 0.12), 0 2px 15px rgba(33, 150, 243, 0.08);
+}
+
+/* 📊 Stats items plus colorés */
+.theme-light .stat-item {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.8) 0%,
+    rgba(255, 248, 245, 0.6) 30%,
+    rgba(240, 249, 255, 0.5) 70%,
+    rgba(253, 244, 255, 0.6) 100%
+  );
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  box-shadow: 0 6px 25px rgba(255, 107, 53, 0.1), 0 2px 10px rgba(33, 150, 243, 0.05);
+}
+
+.theme-light .stat-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15), 0 6px 20px rgba(233, 30, 99, 0.1);
+}
+
+/* 🎴 Model cards plus attractifs */
+.theme-light .model-card {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%, 
+    rgba(255, 248, 245, 0.9) 25%, 
+    rgba(240, 249, 255, 0.85) 50%, 
+    rgba(253, 244, 255, 0.9) 75%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  border: 1px solid rgba(255, 107, 53, 0.2);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.1), 0 3px 15px rgba(33, 150, 243, 0.05);
+}
+
+.theme-light .model-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 50px rgba(255, 107, 53, 0.15), 0 8px 30px rgba(233, 30, 99, 0.1);
+}
+
+/* 📝 Formulaire plus stylé */
+.theme-light .contact-form {
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.8) 0%, 
+    rgba(255, 248, 245, 0.6) 50%,
+    rgba(240, 249, 255, 0.6) 100%
+  );
+  border: 1px solid rgba(255, 107, 53, 0.25);
+  box-shadow: 0 10px 40px rgba(255, 107, 53, 0.1);
+}
+
+.theme-light .form-group input,
+.theme-light .form-group textarea,
+.theme-light .form-group select {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 255, 0.8));
+  border: 2px solid rgba(255, 107, 53, 0.2);
+  box-shadow: 0 2px 10px rgba(255, 107, 53, 0.05);
+}
+
+.theme-light .form-group input:focus,
+.theme-light .form-group textarea:focus,
+.theme-light .form-group select:focus {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 255, 0.9));
+  box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.25), 0 4px 20px rgba(33, 150, 243, 0.1);
+}
+
+/* ============================================================================
+   ✨ EFFETS SPÉCIAUX POUR LE MODE CLAIR
+   ============================================================================ */
+
+/* Animations et transitions plus fluides */
+.theme-light * {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Effet glassmorphism pour certains éléments */
+.theme-light .theme-toggle {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(248, 250, 255, 0.6));
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 107, 53, 0.3);
+  box-shadow: 0 8px 30px rgba(255, 107, 53, 0.15);
+}
+
+.theme-light .theme-toggle:hover {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-color: transparent;
+  box-shadow: 0 12px 40px rgba(255, 107, 53, 0.3);
+}
+
+/* Scroll bar stylée pour le mode clair */
+.theme-light ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.theme-light ::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, rgba(255, 248, 245, 0.5), rgba(240, 249, 255, 0.5));
+}
+
+.theme-light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+  border-radius: 4px;
+}
+
+.theme-light ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary-color), var(--accent-purple));
 }
 
 /* ============================================================================
@@ -187,18 +408,6 @@ body {
 /* Background mode sombre - TON ORIGINAL */
 body {
   background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 100%);
-}
-
-/* Background mode clair - RICHE ET ATTRACTIF */
-body.theme-light {
-  background: linear-gradient(
-    135deg, 
-    #ffffff 0%,
-    #f7fafc 25%,
-    #edf2f7 50%,
-    #e2e8f0 75%,
-    #f0f4f8 100%
-  ) !important;
 }
 
 .app {
@@ -578,19 +787,13 @@ body.theme-light {
   color: white;
 }
 
-/* Badge type adaptatif pour le mode clair */
-.theme-light .badge.type {
-  background: rgba(26, 32, 44, 0.15);
-  color: var(--text-primary);
-}
-
+/* Action button adaptatif */
 .model-actions {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
 }
 
-/* Action button adaptatif */
 .action-btn {
   width: 40px;
   height: 40px;
@@ -611,6 +814,7 @@ body.theme-light {
   transform: scale(1.1);
 }
 
+/* Reste du CSS comme avant... */
 .model-info {
   padding: 1.5rem;
 }
@@ -1171,6 +1375,10 @@ body.theme-light {
   .section-title {
     font-size: 2rem;
   }
+  
+  .search-input {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1191,9 +1399,5 @@ body.theme-light {
   
   .model-card {
     margin: 0 -10px;
-  }
-  
-  .search-input {
-    font-size: 16px;
   }
 }
