@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   
-  // AJOUT CRUCIAL pour Netlify/hébergement
+  // CRUCIAL pour Netlify
   base: './',
   
   server: {
@@ -16,15 +16,24 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     
-    // Optimisations pour éviter les erreurs
+    // Configuration spécifique pour Netlify
     rollupOptions: {
       output: {
+        // Force les bonnes extensions
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
+        
         manualChunks: {
           vendor: ['react', 'react-dom'],
           three: ['three', '@react-three/fiber', '@react-three/drei']
         }
       }
-    }
+    },
+    
+    // Optimisation pour modules ES6
+    target: ['es2020'],
+    minify: 'esbuild'
   },
   
   optimizeDeps: {
